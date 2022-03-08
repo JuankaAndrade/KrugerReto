@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <a routerLink="/" class="nav-link">Ver Empleados</a>
+    <a routerLink="/addemployee" class="nav-link">Agregar Empleado</a>
+  </div>
+  <h1>Listado Empleados</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="website">Vacunados: </label>
+          <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="deviceText">
+            <option disabled>Estado de Vacunacion</option>
+            <option [value]="true">Si</option>
+            <option [value]="false">No</option>
+          </select>
+          <a href="javascript:void(0);" (click)="reloadCurrentPage();"> refrescar </a>
+          <br />
+          <div>
+            <label for="website">Vacuna: </label>
+              <input type="text" class="form-control" name="filterPost" placeholder="Tipo de Vacuna" #txtSearch (keyup)="onSearch(txtSearch.value)"/>       
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Cedula</th>
+            <th>Correo</th>
+            <th>Vacunado</th>
+            <th>Primera Dosis</th>
+            <th>Segunda Dosis</th>
+            <th>Refuerzo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | filter:search:selectedDevice">
+            <td>{{employee.empId}}</td>
+            <td>{{employee.nombres}}</td>
+            <td>{{employee.apellidos}}</td>
+            <td>{{employee.cedula}}</td>
+            <td>{{employee.correo}}</td>
+            <td>{{employee.vaccinated}}</td>
+            <td>{{employee.vaccine[0][1]}}</td>
+            <td>{{employee.vaccine[1][1]}}</td>
+            <td>{{employee.vaccine[2][1]}}</td>
+            <td><button class="btn btn-warning" (click)="deleteEmployee(employee)"> Editar</button></td>
+            <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Borrar</button></td>
+            <td><button class="btn btn-success" (click)="letEmployee(employee)"> Dar de Alta</button></td>
+            <td>
+              <a routerLink="editemployee/{{employee.empId}}">
+                editar
+              </a>
+            </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

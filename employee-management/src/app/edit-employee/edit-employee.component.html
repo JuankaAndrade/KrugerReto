@@ -1,0 +1,91 @@
+<div class="col-md-8">
+    <h2 class="text-center">Actualizar Empleado</h2>
+    <form  [formGroup] = "editEmployee">
+
+      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Nombres: </div>
+          </div>
+          <input type="name" [(ngModel)]="employees.nombres" placeholder="{{filteredEmployee.nombres}}" name="name" class="form-control" formControlName="nombres" id="name">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Apellidos: </div>
+          </div>
+          <input type="name" [(ngModel)]="employees.apellidos" placeholder="{{filteredEmployee.apellidos}}" name="name" class="form-control" formControlName="apellidos" id="apellidos">
+        </div>
+      </div>
+
+      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Cedula: </div>
+          </div>
+          <input [(ngModel)]="employees.cedula" placeholder="{{filteredEmployee.cedula}}" name="cedula" class="form-control" formControlName="cedula" id="cedula">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Correo: </div>
+          </div>
+          <input [(ngModel)]="employees.correo" placeholder="{{filteredEmployee.correo}}" name="correo" formControlName="correo" class="form-control" id="correo">
+        </div>
+      </div>
+
+      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Fecha de Nacimiento: </div>
+          </div>
+          <input [(ngModel)]="employees.born" placeholder="{{filteredEmployee.born}}" name="born" formControlName="born" class="form-control" id="born">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Dirección: </div>
+          </div>
+          <input [(ngModel)]="employees.house" placeholder="{{filteredEmployee.house}}" name="house" formControlName="house" class="form-control" id="house">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">Telefono Movil: </div>
+          </div>
+          <input [(ngModel)]="employees.movile" placeholder="{{filteredEmployee.movile}}" name="movile" formControlName="movile" class="form-control" id="movile">
+        </div>
+      </div>
+
+      <div class="col-md-8 form-group">
+          <label for="website">Primera Dosis: </label>
+            <select  name="dosisUno">
+              <option disabled>Elija tipo de vacuna</option>
+              <option >Ninguna</option>
+              <option >Sputnik</option>
+              <option >AstraZeneca</option>
+              <option >Jhonson & Jhonson</option>
+              <option >Pfizer</option>
+            </select>
+              <input type="fecha1" placeholder="Ingrese Fecha" name="fecha1" class="form-control" id="fecha1">
+          <label for="website">Segunda Dosis: </label>
+          <select  name="dosisDos">
+            <option disabled>Elija tipo de vacuna</option>
+            <option >Ninguna</option>
+            <option >Sputnik</option>
+            <option >AstraZeneca</option>
+            <option >Jhonson & Jhonson</option>
+            <option >Pfizer</option>
+          </select>
+            <input type="fecha2" placeholder="Ingrese Fecha" name="fecha2" class="form-control" id="fecha2">
+          <label for="website">Refuerzo: </label>
+          <select name="refuerzo">
+            <option disabled>Elija tipo de vacuna</option>
+            <option >Ninguna</option>
+            <option >Sputnik</option>
+            <option >AstraZeneca</option>
+            <option >Jhonson & Jhonson</option>
+            <option >Pfizer</option>
+          </select>
+            <input type="fecha3" placeholder="Ingrese Fecha" name="fecha3" class="form-control" id="fecha3">
+    </div>
+  
+      <button class="btn btn-success" (click)="updateEmployee()">Actualizar</button>
+    </form>
+</div>
